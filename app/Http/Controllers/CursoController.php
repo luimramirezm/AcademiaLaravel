@@ -14,8 +14,9 @@ class CursoController extends Controller
      */
     public function index()
     {
-        return 'Estoy en un controlador de recursos';
-        //
+        $cursito = Curso::all(); //USamos un metodo all para traer toda la info de la tabla como array
+        return view('cursos.index', compact('cursito'));//Contact apunta la info deseada a la vista para poderla usar en la lista
+        //return $cursito;ASi probamos si sirve porq nos visualiza los datos de curso de labd
     }
 
     /**
@@ -40,6 +41,11 @@ class CursoController extends Controller
         $cursito= new Curso(); //se debe crear la instancia  y la importacion en use
         $cursito->nombre = $request->input('nombre');// nombre es el campo de de la bd y el segundo nombre es el del campo q creamos /**hace una peticion al servidor para q almacene lo diligenciado en el formulario la flecha conecta el metodo all que trae toda la info almacenada en request, si le pongo input o name entonces me aparece el campo q le pido */
         $cursito->description = $request->input('descripcion');
+
+        if($request->hasFile('imagen')){ //aqui en imagen miramos el name del campo en el html
+            $cursito->imagen = $request->file('imagen')->store('public/cursos'); //aqui usamos es el field de la bd llamada imagen- Esto permite guardar en public gracias al metodo store y crea la carpeta cursos q la acabamos de nombrar,
+
+        }
         $cursito->save(); //para guardar la info en la bd
         return 'Curso creado exitosamente';
     }
