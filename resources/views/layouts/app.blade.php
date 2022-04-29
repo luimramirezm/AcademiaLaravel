@@ -5,7 +5,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> {{--Ponemos el navbar --}}
-            <a class="navbar-brand"><img src="/logo/logo p1.png" width="30" height="30" alt=""></a> {{-- Esto lo copiamos del bobtstrapt y ponemos la ruta donde esta nuestro logo--}}
+            <a href="/cursos" class="navbar-brand"><img src="/logo/logo p1.png" width="30" height="30" alt=""></a> {{-- Esto lo copiamos del bobtstrapt y ponemos la ruta donde esta nuestro logo--}}
             <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -15,7 +15,13 @@
                         <a class="nav-link" href="#">Nuestros Cursos <span class="sr-only">(current)</span></a>
                     </li>
                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Docentes <span class="sr-only">(current)</span></a>
+                        <a  class="nav-link" href="#">Docentes <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a  href= "/cursos/create" class="nav-link" href="#">Crear Curso <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a  href= "/nosotros" class="nav-link" href="#">Sobre Nostros <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>

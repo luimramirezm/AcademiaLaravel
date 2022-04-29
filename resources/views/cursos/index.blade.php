@@ -16,8 +16,7 @@
                 <img style="height: 150px; margin:20px" src="{{Storage::url($alias->imagen)}}" class="card-img-top mx-auto d-block" alt="imagen del curso"> {{-- usamos el botstrapt para organizar la imagen--}}
                 <div class="card-body">
                     <h5 class="card-title">{{$alias -> nombre}}</h5>{{--Con esta interpolacion sacamos la info de la bd, el nombre es como se llama el campo de la bd--}}
-                    <p class="card-text">{{$alias -> description}}</p>
-                    <a href="#" class="btn btn-primary btn-dark">Inscribirse</a>
+                    <a href="/cursos/{{$alias ->id}}" class="btn btn-primary btn-dark">Ver más</a> {{--Aqui ponemos la ruta en el boton segun lo establecido en el cuadro de laravel con la sintaxis para poder saber a que función dle controlador va --}}
                 </div>
             </div>
         </div>

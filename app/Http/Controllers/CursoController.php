@@ -58,7 +58,8 @@ class CursoController extends Controller
      */
     public function show($id)
     {
-        //
+        $cursito= Curso::find($id);
+        return view('cursos.show', compact('cursito'));
     }
 
     /**
@@ -69,7 +70,9 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cursito = Curso::where('id',$id)->firstOrFail(); //Este es el controlador de excepciones para poder que capte el id
+        //return $id;
+        return view('cursos.edit', compact('cursito'));
     }
 
     /**
@@ -81,7 +84,17 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //rellenar los campos con la info en la peeticion request
+        //esta técnica solo actualiza los textps y número
+        $cursito = Curso::find($id);
+        //$cursito->fill($request->all()); //voy a rellenar curso con todo lo q hay en ese id
+
+        $cursito->fill($request->except('imagen'));
+        if($request->hasFile('imagen')){ //aqui en imagen miramos el name del campo en el html
+            $cursito->imagen = $request->file('imagen')->store('public/cursos'); //aqui usamos es el field de la bd llamada imagen- Esto permite guardar en public gracias al metodo store y crea la carpeta cursos q la acabamos de nombrar,
+        }
+        $cursito->save();
+        return 'Curso actualizado correctamente';
     }
 
     /**
@@ -94,4 +107,6 @@ class CursoController extends Controller
     {
         //
     }
+
+
 }
