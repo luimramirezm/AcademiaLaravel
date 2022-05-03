@@ -13,7 +13,7 @@
                 <input id="nombre" class="form-control" type="text" name="nombre">
             </div>
             <div class="form-group">
-                <label for="descript">Ingrese una descriptción: </label>
+                <label for="descript">Ingrese una descripción: </label>
                 <input id="descript" class="form-control" type="text" name="descripcion">
             </div>
             <div class="form-group">

@@ -12,13 +12,16 @@
             <div id="my-nav" class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Nuestros Cursos <span class="sr-only">(current)</span></a>
+                        <a href= "/cursos" class="nav-link" href="#">Nuestros Cursos <span class="sr-only">(current)</span></a>
                     </li>
                    <li class="nav-item active">
-                        <a  class="nav-link" href="#">Docentes <span class="sr-only">(current)</span></a>
+                        <a href= "/docentes" class="nav-link" href="#">Docentes <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a  href= "/cursos/create" class="nav-link" href="#">Crear Curso <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a  href= "/docentes/create" class="nav-link" href="#">Crear Docente <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a  href= "/nosotros" class="nav-link" href="#">Sobre Nostros <span class="sr-only">(current)</span></a>

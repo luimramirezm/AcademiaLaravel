@@ -2,7 +2,7 @@
 {{-- En blade heredamos con @extends --}}
 @extends('layouts.app') {{-- Estoy llamando la plantilla de layouts app.blade.php --}}
 
-@section('titulo', 'Crear Curso') {{-- Esto es para personalizar esa seccion--}}
+@section('titulo', 'Editar Curso') {{-- Esto es para personalizar esa seccion--}}
 
 @section('contenido')
     <h3 class="text-center"> Editar Curso </h3> {{-- este formulario lo heredamos de abajo--}}
@@ -14,7 +14,7 @@
                 <input id="nombre" class="form-control" type="text" name="nombre" value="{{$cursito->nombre}}">
             </div>
             <div class="form-group">
-                <label for="descript">Modifique una descriptción: </label>
+                <label for="descript">Modifique una descripción: </label>
                 <input id="descript" class="form-control" type="text" name="descripcion" value="{{$cursito->description}}">
             </div>
             <div class="form-group">

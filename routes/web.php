@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MiController; // importo MiController.php
 use App\Http\Controllers\ControladorPrecios;
 use App\Http\Controllers\CursoController; //importo el controlador
-use App\Http\Controllers\infoController; //importo el controlador infoController
+use App\Http\Controllers\infoController;//importo el controlador infoController
+use App\Http\Controllers\DocenteControlador;//importo el controlador para la parte de docentes
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,3 +46,5 @@ Route::get('iva/{nombreart}/{canPrecio}', [ControladorPrecios::class, 'getIVA'])
 Route::resource('cursos', CursoController::class);
 
 Route::get('nosotros', [InfoController::class, 'info']);
+
+Route::resource('docentes', DocenteControlador::class);
