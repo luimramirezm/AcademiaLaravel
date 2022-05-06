@@ -37,6 +37,11 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
+        //Implementamos validaciones
+        $validacionDatos = $request->validate([
+            'nombre'=>'required|max:10', //nombre debe cumplir con un maximo de 10 digitos
+            'imagen'=>'required|image' // imagen debe ser una imagen
+        ]);
         //vamos a crear una instancia del modelo curso para manipular la tabla
         $cursito= new Curso(); //se debe crear la instancia  y la importacion en use
         $cursito->nombre = $request->input('nombre');// nombre es el campo de de la bd y el segundo nombre es el del campo q creamos /**hace una peticion al servidor para q almacene lo diligenciado en el formulario la flecha conecta el metodo all que trae toda la info almacenada en request, si le pongo input o name entonces me aparece el campo q le pido */
