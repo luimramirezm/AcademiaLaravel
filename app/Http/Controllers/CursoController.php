@@ -105,13 +105,20 @@ class CursoController extends Controller
      */
     public function destroy($id)
     {
-        $cursito = Curso::find($id);
+        $cursito = Curso::find($id); //Permite ver los botones de editar y eliminar
 
-        $urlImagenBD = $cursito->imagen;
-        //return $urlImagenBD;
-        $rutaCompleta = public_path().$urlImagenBD;
-        return $rutaCompleta;
+        $urlImagenBD = $cursito->imagen; //Permite obtener la ruta relativa y almacenarla en la variable $urlImagenBD
+        //return $urlImagenBD; //nos muestra la ruta de la imagen cuando damos en eliminar
         //return $cursito;
+        //$rutaCompleta = public_path().$urlImagenBD;
+        //return $rutaCompleta;
+        $nombreImagen = str_replace('public/','\storage\\',$urlImagenBD); //estamos reemplzadando la palabra public/ por storage
+        //return $nombreImagen; //La comentamos proque ya no la necesitamos
+        $rutaCompleta = public_path().$nombreImagen; //EL public_path concatenado con la ruta relativa nos trae la ruta absoluta
+        //return $rutaCompleta;
+        unlink($rutaCompleta); //unlink borra el contenido de la ruta que esta entre parentesis
+        $cursito ->delete(); //El m{etodo delete que es llamado mediante el objeto $cursito
+        return 'Registro eliminado correctamente'; //AL eliminar este será el mensaje que recibirá 
     }
 
 
