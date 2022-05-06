@@ -15,7 +15,7 @@
                     <li>{{$alerta}}</li>
                 </ul>
             </div>
-           
+
         @endforeach
     @endif
 
@@ -26,6 +26,10 @@
     <div class="form-group">
         <label for="descript">Ingrese una descripción: </label>
         <input id="descript" class="form-control" type="text" name="descripcion">
+    </div>
+    <div class="form-group">
+        <label for="email">Ingrese un correo electrónico: </label>
+        <input id="email" class="form-control" type="email" name="email">
     </div>
     <div class="form-group">
         <label for="imagen">Cargue una imagen para el curso: </label>

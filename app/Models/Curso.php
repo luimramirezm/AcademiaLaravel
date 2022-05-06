@@ -9,5 +9,5 @@ class Curso extends Model
 {
     use HasFactory;
     //permite acceder a los campos de la tabla y modificarlos
-    protected $fillable = ['nombre','description', 'imagen'];
+    protected $fillable = ['nombre','description', 'imagen', 'email'];
 }

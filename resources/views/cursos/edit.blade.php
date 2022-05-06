@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
                 <label for="descript">Modifique una descripción: </label>
-                <input id="descript" class="form-control" type="text" name="descripcion" value="{{$cursito->description}}">
+                <input id="descript" class="form-control" type="text" name="description" value="{{$cursito->description}}">
             </div>
             <div class="form-group">
                 <label for="imagen">Cargar nueva imagen </label>

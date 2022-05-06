@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\storeCursoRequest; //Aquí debe reflejarse la importación
 use App\Models\Curso;
 use Illuminate\Http\Request;
 
@@ -32,10 +33,10 @@ class CursoController extends Controller
     /**
      * Almacena un nuevo registro creado.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  //$request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(storeCursoRequest $request) //importamos la clase storeCursoRequest de la carpeta request para las validaciones
     {
         //Implementamos validaciones
         $validacionDatos = $request->validate([
@@ -46,6 +47,7 @@ class CursoController extends Controller
         $cursito= new Curso(); //se debe crear la instancia  y la importacion en use
         $cursito->nombre = $request->input('nombre');// nombre es el campo de de la bd y el segundo nombre es el del campo q creamos /**hace una peticion al servidor para q almacene lo diligenciado en el formulario la flecha conecta el metodo all que trae toda la info almacenada en request, si le pongo input o name entonces me aparece el campo q le pido */
         $cursito->description = $request->input('descripcion');
+        $cursito->email = $request->input('email'); // Agregamos al controlador el campo email
 
         if($request->hasFile('imagen')){ //aqui en imagen miramos el name del campo en el html
             $cursito->imagen = $request->file('imagen')->store('public/cursos'); //aqui usamos es el field de la bd llamada imagen- Esto permite guardar en public gracias al metodo store y crea la carpeta cursos q la acabamos de nombrar,
@@ -123,7 +125,7 @@ class CursoController extends Controller
         //return $rutaCompleta;
         unlink($rutaCompleta); //unlink borra el contenido de la ruta que esta entre parentesis
         $cursito ->delete(); //El m{etodo delete que es llamado mediante el objeto $cursito
-        return 'Registro eliminado correctamente'; //AL eliminar este será el mensaje que recibirá 
+        return 'Registro eliminado correctamente'; //AL eliminar este será el mensaje que recibirá
     }
 
 
